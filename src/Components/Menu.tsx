@@ -18,7 +18,6 @@ const StyledMenu = styled.div<{ submenu?: boolean }>`
     `
     position: absolute;
     left: 1rem;
-    background-color: #818199;
     top: -1rem
 
   `};

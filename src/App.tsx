@@ -7,13 +7,16 @@ function App() {
     { text: 'Increase' },
     {
       text: 'Fruit options Location',
-      subMenuItems: [
+      submenuGroups: [
         { text: 'Jungle' },
         { text: 'Field' },
         {
           text: 'Savannah',
-          subMenuItems: [{ text: 'Africa' }, { text: 'South America' }],
+          submenuGroups: [{ text: 'Africa' }, { text: 'South America' }],
         },
+        { text: 'City' },
+        { text: 'Grasslands' },
+        { text: 'Tundra' },
       ],
     },
     { text: 'Delete fruit' },
@@ -22,7 +25,7 @@ function App() {
   const mySecondMenuGroup = [
     {
       text: 'Change background',
-      subMenuItems: [{ text: 'red' }, { text: 'blue' }, { text: 'green' }],
+      submenuGroups: [{ text: 'red' }, { text: 'blue' }, { text: 'green' }],
     },
     { text: 'Check' },
     { text: 'Inspect' },
@@ -31,7 +34,7 @@ function App() {
   const myThirdMenuGroup = [
     {
       text: 'New fruit',
-      subMenuItems: [{ text: 'banana' }, { text: 'orange' }],
+      submenuGroups: [{ text: 'banana' }, { text: 'orange' }],
     },
     { text: 'Copy fruit' },
   ]

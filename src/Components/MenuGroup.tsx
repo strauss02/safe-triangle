@@ -16,7 +16,7 @@ function MenuGroup(props: menuGroupProps) {
       {props.children.map((item, i) => (
         <MenuItem
           text={item.text}
-          subMenuItems={item.subMenuItems}
+          submenuGroups={item.submenuGroups}
           key={item.text + i}
         />
       ))}
