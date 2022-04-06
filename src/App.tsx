@@ -14,8 +14,8 @@ function App() {
           {
             text: 'Savannah',
             submenuGroups: [
+              [{ text: 'Asia' }, { text: 'Australia' }],
               [{ text: 'Africa' }, { text: 'South America' }],
-              [{ text: 'Africa' }, { text: 'SouthAmerica' }],
             ],
           },
           { text: 'City' },

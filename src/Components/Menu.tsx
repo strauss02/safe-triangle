@@ -31,7 +31,10 @@ function Menu(props: menuProps) {
           props.menuGroups.map((group, i) => {
             return (
               // if this is the last group, don't add a divider
-              <MenuGroup key={group[0].text + i} divider={group.length !== i}>
+              <MenuGroup
+                key={group[0].text + i}
+                divider={props.menuGroups.length - 1 !== i}
+              >
                 {group}
               </MenuGroup>
             )

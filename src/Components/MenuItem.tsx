@@ -7,6 +7,7 @@ const MenuText = styled.p`
   font-family: 'San Francisco';
   font-size: 0.95rem;
   color: inherit;
+  white-space: nowrap;
 
   letter-spacing: 0.2px;
 `
@@ -19,6 +20,7 @@ const ItemWrapper = styled.div<{ hasSubmenu?: boolean; submenuLength: any }>`
   align-items: center;
   justify-content: space-between;
   width: auto;
+  flex-basis: auto;
   height: 2rem;
   padding: 0 1rem;
   margin: 0;
