@@ -3,9 +3,9 @@ export type menuItem = {
   subMenuItems?: menuItem[]
 }
 
-export type menuProps = { menuGroups: menuGroup[] }
+export type menuProps = { menuGroups: menuGroup[]; setMenuVisibility: Function }
 
-export type menuGroupProps = { menuItems: menuItem[] }
+export type menuGroupProps = { children: menuItem[]; divider: boolean }
 
 export type MenuItemProps = {
   menuItem: menuItem

@@ -5,7 +5,7 @@ import Menu from './Components/Menu'
 function App() {
   const myMenuGroup = [
     {
-      text: 'Fruit options',
+      text: 'Fruit options Location',
       subMenuItems: [{ text: 'banana' }, { text: 'orange' }],
     },
     { text: 'Delete fruit' },
@@ -19,12 +19,34 @@ function App() {
     { text: 'Copy fruit' },
   ]
 
-  const [menus, setMenues] = useState([])
+  const myThirdMenuGroup = [
+    {
+      text: 'New fruit',
+      subMenuItems: [{ text: 'banana' }, { text: 'orange' }],
+    },
+    { text: 'Copy fruit' },
+  ]
+
+  const [menuVisibility, setMenuVisibility] = useState(true)
+
+  function handleChange() {
+    setMenuVisibility((prevState) => !prevState)
+  }
 
   return (
     <div className="App">
       <header className="App-header">
-        <Menu menuGroups={[myMenuGroup, mySecondMenuGroup]} />
+        {menuVisibility && (
+          <Menu
+            menuGroups={[myMenuGroup, mySecondMenuGroup, myThirdMenuGroup]}
+            setMenuVisibility={setMenuVisibility}
+          />
+        )}
+        <input
+          type={'checkbox'}
+          checked={menuVisibility}
+          onChange={handleChange}
+        />
       </header>
     </div>
   )
