@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { menuItem } from '../types'
-import styled, { css } from 'styled-components'
+import { menuGroup, menuItem } from '../types'
+import styled from 'styled-components'
 import Menu from './Menu'
 
 const MenuText = styled.p`
@@ -51,10 +51,17 @@ const ItemWrapper = styled.div<{ hasSubmenu?: boolean; submenuLength: any }>`
 function MenuItem(props: menuItem) {
   const [submenuVisible, setSubmenuVisible] = useState(false)
 
+  const getSubmenuLength = (submenuGroups: menuGroup[] | undefined): number => {
+    if (submenuGroups) {
+      return submenuGroups.reduce((prev, current) => prev + current.length, 0)
+    }
+    return 0
+  }
+
   return (
     <ItemWrapper
       hasSubmenu={Boolean(props.submenuGroups)}
-      submenuLength={Number(props.submenuGroups?.length)}
+      submenuLength={Number(getSubmenuLength(props.submenuGroups))}
       onMouseEnter={() => {
         setSubmenuVisible(true)
       }}
@@ -65,7 +72,7 @@ function MenuItem(props: menuItem) {
       <MenuText>{props.text}</MenuText>
       {props.submenuGroups && <ArrowWrapper>{'›'}</ArrowWrapper>}
       {props.submenuGroups && submenuVisible && (
-        <Menu submenu menuGroups={[props.submenuGroups]} />
+        <Menu submenu menuGroups={props.submenuGroups} />
       )}
     </ItemWrapper>
   )

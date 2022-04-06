@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { menuProps } from '../types'
 import MenuGroup from './MenuGroup'
 import styled from 'styled-components'

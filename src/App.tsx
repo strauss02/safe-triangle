@@ -8,15 +8,20 @@ function App() {
     {
       text: 'Fruit options Location',
       submenuGroups: [
-        { text: 'Jungle' },
-        { text: 'Field' },
-        {
-          text: 'Savannah',
-          submenuGroups: [{ text: 'Africa' }, { text: 'South America' }],
-        },
-        { text: 'City' },
-        { text: 'Grasslands' },
-        { text: 'Tundra' },
+        [
+          { text: 'Jungle' },
+          { text: 'Field' },
+          {
+            text: 'Savannah',
+            submenuGroups: [
+              [{ text: 'Africa' }, { text: 'South America' }],
+              [{ text: 'Africa' }, { text: 'SouthAmerica' }],
+            ],
+          },
+          { text: 'City' },
+          { text: 'Grasslands' },
+          { text: 'Tundra' },
+        ],
       ],
     },
     { text: 'Delete fruit' },
@@ -25,7 +30,7 @@ function App() {
   const mySecondMenuGroup = [
     {
       text: 'Change background',
-      submenuGroups: [{ text: 'red' }, { text: 'blue' }, { text: 'green' }],
+      submenuGroups: [[{ text: 'red' }, { text: 'blue' }, { text: 'green' }]],
     },
     { text: 'Check' },
     { text: 'Inspect' },
@@ -34,7 +39,7 @@ function App() {
   const myThirdMenuGroup = [
     {
       text: 'New fruit',
-      submenuGroups: [{ text: 'banana' }, { text: 'orange' }],
+      submenuGroups: [[{ text: 'banana' }, { text: 'orange' }]],
     },
     { text: 'Copy fruit' },
   ]

@@ -2,7 +2,7 @@ import { RefObject } from 'react'
 
 export type menuItem = {
   text: string
-  submenuGroups?: menuItem[]
+  submenuGroups?: menuGroup[]
   parentRef?: RefObject<HTMLInputElement>
 }
 
