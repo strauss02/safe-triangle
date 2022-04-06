@@ -24,6 +24,14 @@
   color: white;
 }
 
+/* .submenu {
+  display: none;
+}
+
+.menu:hover .submenu {
+  display: block
+} */
+
 .App-link {
   color: #61dafb;
 }

@@ -11,7 +11,10 @@ export type menuProps = {
   submenu?: boolean
 }
 
-export type menuGroupProps = { children: menuItem[]; divider: boolean }
+export type menuGroupProps = {
+  children: menuItem[]
+  divider: boolean
+}
 
 export type MenuItemProps = {
   menuItem: menuItem

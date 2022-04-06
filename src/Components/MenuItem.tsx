@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { menuItem } from '../types'
 import styled from 'styled-components'
 import Menu from './Menu'
@@ -30,12 +30,23 @@ const ItemWrapper = styled.div`
 `
 
 function MenuItem(props: menuItem) {
+  const [submenuVisible, setSubmenuVisible] = useState(false)
+
   return (
-    <ItemWrapper>
+    <ItemWrapper
+      onMouseEnter={() => {
+        setSubmenuVisible(true)
+      }}
+      onMouseLeave={() => {
+        setSubmenuVisible(false)
+      }}
+    >
       <MenuText>{props.text}</MenuText>
 
       {props.subMenuItems && <ArrowWrapper>{'›'}</ArrowWrapper>}
-      {props.subMenuItems && <Menu submenu menuGroups={[props.subMenuItems]} />}
+      {props.subMenuItems && submenuVisible && (
+        <Menu submenu menuGroups={[props.subMenuItems]} />
+      )}
     </ItemWrapper>
   )
 }

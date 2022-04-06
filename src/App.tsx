@@ -4,9 +4,17 @@ import Menu from './Components/Menu'
 
 function App() {
   const myMenuGroup = [
+    { text: 'Increase' },
     {
       text: 'Fruit options Location',
-      subMenuItems: [{ text: 'Jungle' }, { text: 'Field' }],
+      subMenuItems: [
+        { text: 'Jungle' },
+        { text: 'Field' },
+        {
+          text: 'Savannah',
+          subMenuItems: [{ text: 'Africa' }, { text: 'South America' }],
+        },
+      ],
     },
     { text: 'Delete fruit' },
   ]
@@ -17,6 +25,7 @@ function App() {
       subMenuItems: [{ text: 'red' }, { text: 'blue' }, { text: 'green' }],
     },
     { text: 'Check' },
+    { text: 'Inspect' },
   ]
 
   const myThirdMenuGroup = [
