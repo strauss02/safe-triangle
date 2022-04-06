@@ -18,6 +18,7 @@ export type menuGroupProps = {
 
 export type MenuItemProps = {
   menuItem: menuItem
+  hasSubMenu?: boolean
 }
 
 export type menuGroup = menuItem[]

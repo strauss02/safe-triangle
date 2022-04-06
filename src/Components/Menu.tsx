@@ -27,10 +27,7 @@ const StyledMenu = styled.div<{ submenu?: boolean }>`
 function Menu(props: menuProps) {
   return (
     <MenuWrapper>
-      <StyledMenu
-        submenu={props.submenu}
-        className={props.submenu ? 'submenu' : 'menu'}
-      >
+      <StyledMenu submenu={props.submenu}>
         {props.menuGroups.length > 0 &&
           props.menuGroups.map((group, i) => {
             return (
