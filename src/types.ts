@@ -1,9 +1,15 @@
+import { RefObject } from 'react'
+
 export type menuItem = {
   text: string
   subMenuItems?: menuItem[]
+  parentRef?: RefObject<HTMLInputElement>
 }
 
-export type menuProps = { menuGroups: menuGroup[]; setMenuVisibility: Function }
+export type menuProps = {
+  menuGroups: menuGroup[]
+  submenu?: boolean
+}
 
 export type menuGroupProps = { children: menuItem[]; divider: boolean }
 

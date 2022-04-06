@@ -1,6 +1,7 @@
 import React from 'react'
 import { menuItem } from '../types'
 import styled from 'styled-components'
+import Menu from './Menu'
 
 const MenuText = styled.p`
   font-family: 'San Francisco';
@@ -34,6 +35,7 @@ function MenuItem(props: menuItem) {
       <MenuText>{props.text}</MenuText>
 
       {props.subMenuItems && <ArrowWrapper>{'›'}</ArrowWrapper>}
+      {props.subMenuItems && <Menu submenu menuGroups={[props.subMenuItems]} />}
     </ItemWrapper>
   )
 }

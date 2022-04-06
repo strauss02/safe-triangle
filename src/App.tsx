@@ -6,17 +6,17 @@ function App() {
   const myMenuGroup = [
     {
       text: 'Fruit options Location',
-      subMenuItems: [{ text: 'banana' }, { text: 'orange' }],
+      subMenuItems: [{ text: 'Jungle' }, { text: 'Field' }],
     },
     { text: 'Delete fruit' },
   ]
 
   const mySecondMenuGroup = [
     {
-      text: 'New fruit',
-      subMenuItems: [{ text: 'banana' }, { text: 'orange' }],
+      text: 'Change background',
+      subMenuItems: [{ text: 'red' }, { text: 'blue' }, { text: 'green' }],
     },
-    { text: 'Copy fruit' },
+    { text: 'Check' },
   ]
 
   const myThirdMenuGroup = [
@@ -39,7 +39,7 @@ function App() {
         {menuVisibility && (
           <Menu
             menuGroups={[myMenuGroup, mySecondMenuGroup, myThirdMenuGroup]}
-            setMenuVisibility={setMenuVisibility}
+            // setMenuVisibility={setMenuVisibility}
           />
         )}
         <input
