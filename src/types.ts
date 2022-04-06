@@ -3,8 +3,12 @@ export type menuItem = {
   subMenuItems?: menuItem[]
 }
 
-export type menuProps = menuItemsGroups[]
+export type menuProps = { menuGroups: menuGroup[] }
 
-export type menuItemsGroups = menuItemsGroup[]
+export type menuGroupProps = { menuItems: menuItem[] }
 
-export type menuItemsGroup = menuItem[]
+export type MenuItemProps = {
+  menuItem: menuItem
+}
+
+export type menuGroup = menuItem[]
