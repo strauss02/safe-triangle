@@ -17,7 +17,7 @@ const StyledMenu = styled.div<{ submenu?: boolean }>`
     submenu &&
     `
     position: absolute;
-    left: 1rem;
+    // left: 1rem;
     top: -1rem
 
   `};
