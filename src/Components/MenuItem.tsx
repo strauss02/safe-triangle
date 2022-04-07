@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Menu from './Menu'
 
 const MenuText = styled.p`
-  font-family: 'San Francisco';
   font-size: 0.95rem;
   color: inherit;
   white-space: nowrap;
@@ -55,7 +54,6 @@ const ItemWrapper = styled.div<{
 `
 
 const ItemContainer = styled.div`
-  background-color: #00800050;
   height: 100%;
   width: 100%;
   display: flex;
@@ -80,10 +78,11 @@ function MenuItem(props: menuItem) {
   ): void => {
     const { left, top } = e.currentTarget.getBoundingClientRect()
     setLeftDistance(Math.round(e.clientX - left))
-    {
-      console.log(leftDistance)
-    }
   }
+
+  const memoizedSubmenuGroups = useMemo(() => {
+    return props.submenuGroups as menuGroup[]
+  }, [props.submenuGroups])
 
   return (
     <ItemWrapper
@@ -107,7 +106,7 @@ function MenuItem(props: menuItem) {
         {props.submenuGroups && <ArrowWrapper>{'›'}</ArrowWrapper>}
       </ItemContainer>
       {props.submenuGroups && submenuVisible && (
-        <Menu submenu menuGroups={props.submenuGroups} />
+        <Menu submenu menuGroups={memoizedSubmenuGroups} />
       )}
     </ItemWrapper>
   )

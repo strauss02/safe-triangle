@@ -44,4 +44,4 @@ function Menu(props: menuProps) {
   )
 }
 
-export default Menu
+export default React.memo(Menu)
