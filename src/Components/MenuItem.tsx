@@ -63,6 +63,7 @@ const ItemContainer = styled.div`
 `
 
 function MenuItem(props: menuItem) {
+  const hasSubmenu = Boolean(props.submenuGroups)
   const [submenuVisible, setSubmenuVisible] = useState(false)
   const [leftDistance, setLeftDistance] = useState(0)
 
@@ -76,7 +77,7 @@ function MenuItem(props: menuItem) {
   const getLeftDistance = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
-    const { left, top } = e.currentTarget.getBoundingClientRect()
+    const { left } = e.currentTarget.getBoundingClientRect()
     setLeftDistance(Math.round(e.clientX - left))
   }
 
@@ -84,22 +85,27 @@ function MenuItem(props: menuItem) {
     return props.submenuGroups as menuGroup[]
   }, [props.submenuGroups])
 
+  // const memoizedLeftDistance = useMemo(() => {
+  //   return getLeftDistance()
+  // }, leftDistance)
+
   return (
     <ItemWrapper
-      hasSubmenu={Boolean(props.submenuGroups)}
+      hasSubmenu={hasSubmenu}
       submenuLength={Number(getSubmenuLength(props.submenuGroups))}
       leftDistance={leftDistance}
       onMouseEnter={() => {
-        setSubmenuVisible(true)
+        if (hasSubmenu) setSubmenuVisible(true)
       }}
       onMouseLeave={() => {
-        setSubmenuVisible(false)
+        if (hasSubmenu) setSubmenuVisible(false)
       }}
     >
+      {console.log(leftDistance)}
       <ItemContainer
-        // TODO: this event (mouseMove) should be considered only when MenuItem has a submenu.
+        //this event (mouseMove) should invoke a func only when MenuItem has a submenu.
         onMouseMove={(e) => {
-          getLeftDistance(e)
+          if (hasSubmenu) getLeftDistance(e)
         }}
       >
         <MenuText>{props.text}</MenuText>
