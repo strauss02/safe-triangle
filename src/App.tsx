@@ -44,25 +44,21 @@ function App() {
     { text: 'Copy fruit' },
   ]
 
-  const [menuVisibility, setMenuVisibility] = useState(true)
+  const [contextMenuHidden, setContextMenuHidden] = useState(true)
+  const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 })
 
-  function handleChange() {
-    setMenuVisibility((prevState) => !prevState)
+  function handleRightClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    setContextMenuHidden(false)
+    setContextMenuPosition({ x: e.clientX, y: e.clientY })
   }
 
   return (
-    <div className="App">
+    <div onContextMenu={handleRightClick} className="App">
       <header className="App-header">
-        {menuVisibility && (
-          <Menu
-            menuGroups={[myMenuGroup, mySecondMenuGroup, myThirdMenuGroup]}
-            // setMenuVisibility={setMenuVisibility}
-          />
-        )}
-        <input
-          type={'checkbox'}
-          checked={menuVisibility}
-          onChange={handleChange}
+        <Menu
+          position={contextMenuPosition}
+          menuGroups={[myMenuGroup, mySecondMenuGroup, myThirdMenuGroup]}
+          hidden={contextMenuHidden}
         />
       </header>
     </div>

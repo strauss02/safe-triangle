@@ -14,6 +14,8 @@ const ArrowWrapper = styled(MenuText)`
   margin-left: 1rem;
 `
 
+/* TODO : Switch to a sliding system based on a fixed number of steps, with each slider step having a different width (leftDistance).
+ */
 const ItemWrapper = styled.div<{
   hasSubmenu?: boolean
   submenuLength: any
@@ -36,16 +38,15 @@ const ItemWrapper = styled.div<{
     ${({ hasSubmenu, submenuLength, leftDistance }) =>
       hasSubmenu &&
       `
-    background: blue;
     &::after {
-      background-color: #0000ff75;
+      background-color: #8474cc4b;
       content: '';
       position: absolute;
       display: block;
       top: 2rem;
       right: 0rem;
       height: calc(2rem * ${submenuLength - 1});
-      width: calc(100% - ${leftDistance * 0.6}px);
+      width: calc(100% - ${leftDistance * 0.9}px);
       z-index: 100;
       clip-path: polygon(0px 0px, 100% 0px, 100% 100%);
     }

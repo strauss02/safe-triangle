@@ -6,10 +6,19 @@ export type menuItem = {
   parentRef?: RefObject<HTMLInputElement>
 }
 
-export type menuProps = {
-  menuGroups: menuGroup[]
-  submenu?: boolean
-}
+export type menuProps =
+  | {
+      menuGroups: menuGroup[]
+      hidden?: boolean
+      submenu?: true
+      position?: { x: number; y: number }
+    }
+  | {
+      menuGroups: menuGroup[]
+      hidden?: boolean
+      submenu?: false
+      position?: never
+    }
 
 export type menuGroupProps = {
   children: menuItem[]
