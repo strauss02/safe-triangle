@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { menuGroup, menuItem } from '../types'
 import styled from 'styled-components'
 import Menu from './Menu'
@@ -14,7 +14,11 @@ const ArrowWrapper = styled(MenuText)`
   margin-left: 1rem;
 `
 
-/* TODO : Switch to a sliding system based on a fixed number of steps, with each slider step having a different width (leftDistance).
+/* 
+  With each mouse movement, a new CSS class gets generated. This is very bad for performance and causes visible lags, negatively effecting the overall user experience.
+  TODO : Switch to a sliding system based on a fixed number of steps, with each slider step having a different width (leftDistance).
+  Limit possible triangle states to about 10 options.
+
  */
 const ItemWrapper = styled.div<{
   hasSubmenu?: boolean
@@ -86,10 +90,6 @@ function MenuItem(props: menuItem) {
     return props.submenuGroups as menuGroup[]
   }, [props.submenuGroups])
 
-  // const memoizedLeftDistance = useMemo(() => {
-  //   return getLeftDistance()
-  // }, leftDistance)
-
   return (
     <ItemWrapper
       hasSubmenu={hasSubmenu}
@@ -102,9 +102,7 @@ function MenuItem(props: menuItem) {
         if (hasSubmenu) setSubmenuVisible(false)
       }}
     >
-      {console.log(leftDistance)}
       <ItemContainer
-        //this event (mouseMove) should invoke a func only when MenuItem has a submenu.
         onMouseMove={(e) => {
           if (hasSubmenu) getLeftDistance(e)
         }}

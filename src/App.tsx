@@ -6,7 +6,7 @@ function App() {
   const myMenuGroup = [
     { text: 'Increase' },
     {
-      text: 'Fruit options Location',
+      text: 'Fruit location',
       submenuGroups: [
         [
           { text: 'Jungle' },
@@ -30,7 +30,7 @@ function App() {
   const mySecondMenuGroup = [
     {
       text: 'Change background',
-      submenuGroups: [[{ text: 'red' }, { text: 'blue' }, { text: 'green' }]],
+      submenuGroups: [[{ text: 'Red' }, { text: 'Blue' }, { text: 'Green' }]],
     },
     { text: 'Check' },
     { text: 'Inspect' },
@@ -39,7 +39,7 @@ function App() {
   const myThirdMenuGroup = [
     {
       text: 'New fruit',
-      submenuGroups: [[{ text: 'banana' }, { text: 'orange' }]],
+      submenuGroups: [[{ text: 'Banana' }, { text: 'Orange' }]],
     },
     { text: 'Copy fruit' },
   ]
@@ -52,8 +52,12 @@ function App() {
     setContextMenuPosition({ x: e.clientX, y: e.clientY })
   }
 
+  function handleClick() {
+    setContextMenuHidden(true)
+  }
+
   return (
-    <div onContextMenu={handleRightClick} className="App">
+    <div onContextMenu={handleRightClick} onClick={handleClick} className="App">
       <header className="App-header">
         <Menu
           position={contextMenuPosition}
