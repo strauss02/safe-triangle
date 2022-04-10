@@ -1,4 +1,3 @@
-import React from 'react'
 import { menuGroupProps } from '../types'
 import MenuItem from './MenuItem'
 import styled from 'styled-components'
